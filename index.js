@@ -32,7 +32,8 @@ async function get(url, headers = "", useragent = ""){
         const browser = await Puppeteer.default.launch({
           headless: true,
           args: ['--no-sandbox','--disable-setuid-sandbox'],
-          ignoreDefaultArgs: ['--disable-extensions']
+          ignoreDefaultArgs: ['--disable-extensions'],
+          executablePath: executablePath(),
         })
         const page = await browser.newPage()      
         
@@ -216,7 +217,8 @@ async function InitialLoad()
   const browser = await Puppeteer.default.launch({
     headless: true,
     args: ['--no-sandbox','--disable-setuid-sandbox'],
-    ignoreDefaultArgs: ['--disable-extensions']
+    ignoreDefaultArgs: ['--disable-extensions'],
+    executablePath: executablePath(),
   })
 
   const page = await browser.newPage();
