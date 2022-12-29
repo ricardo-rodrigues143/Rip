@@ -1,0 +1,320 @@
+@font-face{
+    font-family:'DINPro-Cond-Bold';
+    src:url("https://cdn.futbin.com/design/css/fonts/DINPro/DINPro-CondBold.woff") format("truetype")
+}
+@font-face{
+    font-family:'DINPro-Cond';
+    src:url("https://cdn.futbin.com/design/css/fonts/DINPro/DINPro-Cond.woff") format("truetype")
+}
+@font-face{
+    font-family:'DINPro-Cond-Med';
+    src:url("https://cdn.futbin.com/design/css/fonts/DINPro/DINPro-CondMedium.woff") format("truetype")
+}
+
+#Player-card{
+    line-height: 1.5;
+    text-align: left;
+    font-family: 'Poppins',sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    box-sizing: border-box;
+    -webkit-animation: card-glow-green 3s infinite;
+    display: block;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    height: 305px;
+    width: 220px;
+    background-position: center;
+    background-size: 105%;
+    background-position-x: -6px;
+    background-position-y: -5px;
+    background-image: url("https://cdn.futbin.com/content/fifa23/img/cards/hd/118_winter_wildcards.png?v=139");
+    border: none;
+    color: #F6D882;
+    position: relative;
+    top: -15px;
+    transition: all 0.3s ease;
+}
+
+.ut23.card-regular .pcdisplay-rat {
+    font-size: 40px;
+    left: 42px;
+    font-family: "DINPro-Cond-Med",Arial,sans-serif !important;
+    text-align: center;
+    width: 45px;
+    top: 30px;
+    line-height: 44px;
+    z-index: 1;
+    font-weight: 500;
+}
+
+.ut23.card-regular .pcdisplay-name {
+    left: 19px;
+    text-align: center;
+    top: 162px;
+    width: 180px;
+    text-transform: uppercase;
+    letter-spacing: -0.2px;
+    line-height: 26px;
+    font-family: "DINPro-Cond-Bold",Arial,sans-serif !important;
+    font-size: 22px;
+    z-index: 1;
+}
+
+.pcdisplay-pos{
+    cursor: pointer;
+    color: #F6D882;
+    box-sizing: border-box;
+    line-height: 18px;
+    position: absolute;
+    font-size: 18px;
+    top: 70px;
+    width: 30px;
+    left: 49px;
+    text-align: center;
+    font-weight: 700;
+    z-index: 1;
+}
+
+.pcdisplay-country{
+    font-size: 14px;
+    font-weight: 500;
+    color: #F6D882;
+    box-sizing: border-box;
+    line-height: 18px;
+    position: absolute;
+    left: 43px;
+    top: 97px;
+    width: 37px;
+    text-align: center;
+    z-index: 1;
+}
+
+#player_nation{
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    color: #F6D882;
+    line-height: 18px;
+    text-align: center;
+    box-sizing: border-box;
+    vertical-align: middle;
+    border-style: none;
+    max-width: 30px;
+}
+
+.pcdisplay-club{
+    text-align: left;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    color: #F6D882;
+    box-sizing: border-box;
+    line-height: 18px;
+    left: 48px;
+    position: absolute;
+    top: 124px;
+    z-index: 1;
+}
+
+#player_club{
+    text-align: left;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    color: #F6D882;
+    line-height: 18px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    border-style: none;
+    width: 26px;
+}
+
+.ut23.card-regular .ovrhover {
+    left: -14px;
+    top: 27px;
+}
+
+.stat-val
+{
+    text-align: left;
+    font-weight: 500;
+    cursor: pointer;
+    color: #F6D882;
+    box-sizing: border-box;
+    line-height: 18px;
+    position: absolute;
+    font-size: 21px;
+}
+
+.ut23.card-regular .pcdisplay-ovr1 {
+    font-size: 21px;
+    font-family: "DINPro-Cond-Bold",Arial,sans-serif !important;
+    left: 62px;
+    top: 168px;
+}
+
+.ut23.card-regular .pcdisplay-ovr2 {
+    font-size: 21px;
+    font-family: "DINPro-Cond-Bold",Arial,sans-serif !important;
+    left: 62px;
+    top: 188px;
+}
+
+.ut23.card-regular .pcdisplay-ovr3{
+    font-size: 21px;
+    font-family: "DINPro-Cond-Bold",Arial,sans-serif !important;
+	left: 62px;
+    top: 209px;
+}
+
+.ut23.card-regular .pcdisplay-ovr4{
+    font-size: 21px;
+    font-family: "DINPro-Cond-Bold",Arial,sans-serif !important;
+    left: 139px;
+    top: 168px;
+}
+
+.ut23.card-regular .pcdisplay-ovr5{
+    font-size: 21px;
+    font-family: "DINPro-Cond-Bold",Arial,sans-serif !important;
+	left: 139px;
+    top: 188px;
+}
+
+.ut23.card-regular .pcdisplay-ovr6{
+    font-size: 21px;
+    font-family: "DINPro-Cond-Bold",Arial,sans-serif !important;
+	left: 139px;
+    top: 209px;
+}
+
+.pcdisplay-card-pace {
+    font-size: 21px;
+    left: 82px;
+    top: 169px;
+    font-weight: 400;
+}
+
+.pcdisplay-card-shoo {
+    font-size: 21px;
+    left: 82px;
+    top: 190px;
+    font-weight: 400;
+}
+
+.ut23.card-regular .pcdisplay-card-pas {
+    font-size: 21px;
+    left: 82px;
+    top: 210px;
+    font-weight: 400;
+}
+
+.pcdisplay-card-dri {
+    font-size: 21px;
+    left: 161px;
+    top: 169px;
+    font-weight: 400;
+}
+
+.pcdisplay-card-def {
+    text-align: left;
+    cursor: pointer;
+    color: #F6D882;
+    box-sizing: border-box;
+    font-size: 21px;
+    left: 161px;
+    top: 190px;
+    font-weight: 400;
+}
+
+.pcdisplay-card-phy {
+    text-align: left;
+    cursor: pointer;
+    color: #F6D882;
+    box-sizing: border-box;
+    font-size: 21px;
+    left: 161px;
+    top: 210px;
+    font-weight: 400;
+}
+
+.pcdisplay div {
+    line-height: 18px;
+    position: absolute;
+}
+
+.ut23.card-regular .pcdisplay-picture.special-img {
+    height: auto;
+    left: 23px;
+    top: 32px;
+}
+
+.ut23.card-regular .pcdisplay-picture {
+    height: auto;
+    left: 75px;
+    top: 42px;
+    width: 112px;
+}
+
+.ut23.card-regular .pcdisplay-picture.special-img img {
+    width: 174px;
+}
+
+.ut23.card-regular .pcdisplay-picture img {
+    width: 122px;
+}
+
+.pcdisplay.ut23 div {
+    font-family: "DINPro-Cond",Arial,sans-serif !important;
+}
+
+.ut23.card-regular .vert-line {
+    position: absolute;
+    left: 49%;
+    height: 18%;
+    width: 1px;
+    top: 65%;
+    opacity: 0.8;
+}
+
+.ut23.card-regular .horz-line {
+    position: absolute;
+    top: 62%;
+    width: 59%;
+    height: 1px;
+    left: 20%;
+    opacity: 0.8;
+    z-index: 1;
+}
+
+
+.ut23.card-regular .top-one-horz-line {
+    position: absolute;
+    top: 30.5%;
+    width: 10%;
+    height: 1px;
+    left: 23%;
+}
+
+.ut23.card-regular .top-two-horz-line {
+    position: absolute;
+    top: 40%;
+    width: 10%;
+    height: 1px;
+    left: 23%;
+}
+
+.ut23.card-regular .horz-line-bottom {
+    position: absolute;
+    top: 85%;
+    width: 10%;
+    height: 1px;
+    left: 44%;
+    opacity: 0.8;
+}
+
+.ut23.gold .vert-line, .ut23.gold .horz-line {
+    background: #7B2626;
+}
