@@ -29,7 +29,7 @@ async function get(url, headers = "", useragent = ""){
                 executablePath: executablePath(),
             })*/
 
-        const browser = await puppeteer.launch({
+        const browser = await Puppeteer.default.launch({
           headless: true,
           args: ['--no-sandbox','--disable-setuid-sandbox'],
           ignoreDefaultArgs: ['--disable-extensions']
@@ -213,7 +213,7 @@ async function InitialLoad()
 {
   console.log("INIT...")
   var style = ""
-  const browser = await puppeteer.launch({
+  const browser = await Puppeteer.default.launch({
     headless: true,
     args: ['--no-sandbox','--disable-setuid-sandbox'],
     ignoreDefaultArgs: ['--disable-extensions']
