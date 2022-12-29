@@ -46,7 +46,7 @@ async function get(url, headers = "", useragent = ""){
             await page.setUserAgent(useragent)
         }
 
-        await page.goto(url)
+        await page.goto(url, { waitUntil: 'networkidle2', timeout: 0})
         const page_content = await page.content()
        
         await browser.close()
@@ -228,7 +228,7 @@ async function InitialLoad()
     }
   });
 
-  await page.goto('https://www.futbin.com/squad-building-challenges')
+  await page.goto('https://www.futbin.com/squad-building-challenges', {  waitUntil: 'networkidle2',timeout: 0})
   const page_content = await page.content()
  
   await browser.close();
