@@ -30,9 +30,9 @@ async function get(url, headers = "", useragent = ""){
             })*/
 
         const browser = await Puppeteer.default.launch({
-          headless: true,
-          args: ['--no-sandbox','--disable-setuid-sandbox'],
-          ignoreDefaultArgs: ['--disable-extensions'],
+          "headless": true,
+          "args": ["--fast-start", "--disable-extensions", "--no-sandbox", "--disable-setuid-sandbox"],
+          "ignoreHTTPSErrors": true,
           executablePath: executablePath(),
         })
         const page = await browser.newPage()      
@@ -215,9 +215,9 @@ async function InitialLoad()
   console.log("INIT...")
   var style = ""
   const browser = await Puppeteer.default.launch({
-    headless: true,
-    args: ['--no-sandbox','--disable-setuid-sandbox'],
-    ignoreDefaultArgs: ['--disable-extensions'],
+    "headless": true,
+    "args": ["--fast-start", "--disable-extensions", "--no-sandbox", "--disable-setuid-sandbox"],
+    "ignoreHTTPSErrors": true,
     executablePath: executablePath(),
   })
 
