@@ -106,10 +106,12 @@ var Players = []
 
 const app = express();
 app.get('/', (req, res) => {
+  console.log("SBCS")
   res.send({data : SBCs})  
 });
 
 app.get('/player', async (req, res) => {
+  console.log("player")
     if(req.query.id != undefined)
     {
       var generateImage = (req.query.generateImage === undefined || req.query.generateImage.toLowerCase() === 'false' ? false : true)
