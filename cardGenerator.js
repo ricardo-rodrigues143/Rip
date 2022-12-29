@@ -72,10 +72,7 @@ async function GenerateCard(Player, generateImage)
             transparent:true,
             selector:"#Player-card",
             html: html,
-            puppeteerArgs: {
-                '--no-sandbox': true,
-                '--disable-setuid-sandbox': true
-            }
+            puppeteerArgs: ["--fast-start", "--disable-extensions", "--no-sandbox", "--disable-setuid-sandbox"]
         })
     }   
 
