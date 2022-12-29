@@ -20,14 +20,20 @@ var fs = require('fs');
 async function get(url, headers = "", useragent = ""){
     return new Promise(async(resolve) =>{
       
-        const browser = await Puppeteer.default.launch(
+        /*const browser = await Puppeteer.default.launch(
             {
                 "headless": true,
                 "args": ["--fast-start", "--disable-extensions", "--no-sandbox"],
                 "ignoreHTTPSErrors": true,
                 // add this
                 executablePath: executablePath(),
-            })
+            })*/
+
+        const browser = await puppeteer.launch({
+          headless: true,
+          args: ['--no-sandbox','--disable-setuid-sandbox'],
+          ignoreDefaultArgs: ['--disable-extensions']
+        })
         const page = await browser.newPage()      
         
         
