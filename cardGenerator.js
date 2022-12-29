@@ -66,11 +66,16 @@ async function GenerateCard(Player, generateImage)
         </div>
     </body></html>`
 
+    
     if(generateImage){
         return image = await nodeHtmlToImage({
             transparent:true,
             selector:"#Player-card",
-            html: html
+            html: html,
+            puppeteerArgs: {
+                '--no-sandbox': true,
+                '--disable-setuid-sandbox': true
+            }
         })
     }   
 
