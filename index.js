@@ -1,58 +1,11 @@
 const cheerio = require('cheerio');
 const express = require('express');
 
-//Dependencies
-const Puppeteer_Stealth = require("puppeteer-extra-plugin-stealth")
-const Puppeteer = require("puppeteer-extra")
-const {executablePath} = require('puppeteer')
-
-//Puppeteer
-Puppeteer.default.use(Puppeteer_Stealth())
-
-const { toJSON }  = require('css-convert-json');
-
 const CardGenerator = require("./cardGenerator.js")
+const PuppeteerFuncs = require("./PuppeteerFuncs.js")
 
 var SBC_STYLE = ""
 var fs = require('fs');
-
-//Main
-async function get(url, headers = "", useragent = ""){
-    return new Promise(async(resolve) =>{
-      
-        /*const browser = await Puppeteer.default.launch(
-            {
-                "headless": true,
-                "args": ["--fast-start", "--disable-extensions", "--no-sandbox"],
-                "ignoreHTTPSErrors": true,
-                // add this
-                executablePath: executablePath(),
-            })*/
-
-        const browser = await Puppeteer.default.launch({
-          "headless": true,
-          "args": ["--fast-start", "--disable-extensions", "--no-sandbox", "--disable-setuid-sandbox"],
-          "ignoreHTTPSErrors": true,
-          executablePath: executablePath(),
-        })
-        const page = await browser.newPage()      
-        
-        
-        if(headers){
-            await page.setExtraHTTPHeaders(headers)
-        }
-
-        if(useragent){
-            await page.setUserAgent(useragent)
-        }
-
-        await page.goto(url, { waitUntil: 'networkidle2', timeout: 0})
-        const page_content = await page.content()
-       
-        await browser.close()
-        resolve(page_content)
-    })
-}
 
 class SBC
 {
@@ -141,7 +94,7 @@ async function GeneratePlayer(id)
   var _Player = Players.find(element => element.Id == id)
   if(_Player == undefined)
   {
-    await get(`https://www.futbin.com/23/player/${id}`).then(async c => {
+    await PuppeteerFuncs.GetUrl(`https://www.futbin.com/23/player/${id}`).then(async c => {
       const $ = cheerio.load(c);
       const playerElement = $('#Player-card')
 
@@ -213,27 +166,9 @@ function BuildCardStats($, playerElement)
 async function InitialLoad()
 {
   console.log("INIT...")
-  var style = ""
-  const browser = await Puppeteer.default.launch({
-    "headless": true,
-    "args": ["--fast-start", "--disable-extensions", "--no-sandbox", "--disable-setuid-sandbox"],
-    "ignoreHTTPSErrors": true,
-    executablePath: executablePath(),
-  })
-
-  const page = await browser.newPage();
-  page.on('response',async response => {
-    if(response.request().resourceType() === 'stylesheet') {
-      style += await response.text();
-    }
-  });
-
-  await page.goto('https://www.futbin.com/squad-building-challenges', {  waitUntil: 'networkidle2',timeout: 0})
-  const page_content = await page.content()
- 
-  await browser.close();
-
-  SBC_STYLE = toJSON(style);
+  const [page_content, style] = await PuppeteerFuncs.GetUrlAndStyle('https://www.futbin.com/squad-building-challenges');
+  SBC_STYLE = style;
+  
 //  fs.writeFile('./styles.css', style, function(err) {})
   try {
     await LoadSBCs(page_content);

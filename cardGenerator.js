@@ -1,4 +1,4 @@
-const nodeHtmlToImage = require('node-html-to-image')
+const PuppeteerFuncs = require("./PuppeteerFuncs.js")
 const fs = require('fs');
 const style = fs.readFileSync('./styles.css');   
 
@@ -66,17 +66,8 @@ async function GenerateCard(Player, generateImage)
         </div>
     </body></html>`
 
-    
-    if(generateImage){
-        return image = await nodeHtmlToImage({
-            transparent:true,
-            selector:"#Player-card",
-            html: html,
-            puppeteerArgs: ["--fast-start", "--disable-extensions", "--no-sandbox", "--disable-setuid-sandbox"]
-        })
-    }   
-
-    return html;
+    return generateImage ? await PuppeteerFuncs.HtmlToPng(html, "#Player-card") : html
 }
+
 
 exports.GenerateCard = GenerateCard
